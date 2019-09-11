@@ -1,0 +1,32 @@
+ng new my-app
+ng serve
+
+reating components with CLI
+ng generate ccomponent
+ng g c
+	--spec false 					=> preventing generation of testing file
+	--ng g c recipes/recipe-list 	=> exact path to create this not in root level
+
+===========================================================================================
+//* 							Passing Data from Inside Outside						*//
+===========================================================================================
+----------------
+//* Outside: *//
+---------------
+HTML: (serverCreated)="onServerAdded($event)"
+onServerAdded( serverData: { serverName:string,serverContent:string } ) {
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName,
+      content: serverData.serverContent
+    });
+}
+---------------
+//* Inside: *//
+--------------
+@Output() serverCreated = new EventEmitter<{ serverName:string,serverContent:string }>()
+this.serverCreated.emit({ 
+  serverName: this.newServerName,
+  serverContent : this.newServerContent 
+})
+
