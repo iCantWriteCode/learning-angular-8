@@ -8,7 +8,7 @@ ng g c
 	--ng g c recipes/recipe-list 	=> exact path to create this not in root level
 
 ===========================================================================================
-//* 							Passing Data from Inside Outside						*//
+//* 							          Passing Data from Inside Outside						                *//
 ===========================================================================================
 ----------------
 //* Outside: *//
@@ -30,3 +30,15 @@ this.serverCreated.emit({
   serverContent : this.newServerContent 
 })
 
+===========================================================================================
+//* 							                    Router						                                *//
+===========================================================================================
+private route:  ActivatedRoute
+private router: Router
+
+this.route.params
+this.router.navigate
+
+
+
+npm run build:ssr && npm run serve:ssr
